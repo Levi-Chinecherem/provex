@@ -12,7 +12,11 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+import cloudinary
 import cloudinary_storage
+
+import cloudinary.uploader
+import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -38,10 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    
-    'cloudinary_storage',
     'django.contrib.staticfiles',
-    'cloudinary',
+    'cloudinary_storage',
 
     'static_pages',
     'payment',
@@ -139,8 +141,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, images)
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# Media files (uploads)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': 'ddirw9v0d',
@@ -148,8 +151,6 @@ CLOUDINARY_STORAGE = {
     'API_SECRET': '8ePybnqjE4xP9HlGMhT_jyUiiTI'
 }
 
-# Media files (uploads)
-MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Default primary key field type
