@@ -1,8 +1,6 @@
-asgiref
-Django
-pillow
-psycopg2
-psycopg2-binary~=2.9.6
-sqlparse
-tzdata
-whitenoise
+asgiref==3.4.1
+Django==3.2.9
+Pillow==8.3.2
+psycopg2==2.9.1
+psycopg2-binary==2.9.1
+sqlparse==0.4.2
