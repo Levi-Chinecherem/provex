@@ -2,7 +2,7 @@ asgiref
 Django
 pillow
 psycopg2
-psycopg2-binary
+psycopg2-binary~=2.9.6
 sqlparse
 tzdata
 whitenoise
