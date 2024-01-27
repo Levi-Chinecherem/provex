@@ -142,7 +142,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, images)
 STATIC_URL = '/static/'
 # Media files (uploads)
-MEDIA_URL = '/media/'
+# Set the media URL to point directly to Cloudinary
+MEDIA_URL = 'https://res.cloudinary.com/ddirw9v0d/image/upload/v1/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 CLOUDINARY_STORAGE = {
