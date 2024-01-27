@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}Property Details{% endblock %}
+
+{% block content %}
+<div class="app-body-main-content">
+    <section class="transfer-section">
+        <div>
+            <div class="transfers" id="property-details-container">
+                <div style="margin-bottom: 20px;">
+                    <img src="{{ property.image.url }}" alt="{{ property.title }}" style="border-radius: 10px; max-width: 100%;"><br>
+                    <h3>{{ property.title }}</h3>
+                    <p><strong>Address:</strong> {{ property.address }}</p>
+                    <p><strong>Width (sqft):</strong> {{ property.width_in_sqft }}</p>
+                    <p><strong>Number of Bedrooms:</strong> {{ property.no_of_bed }}</p>
+                    <p><strong>Number of Bathrooms:</strong> {{ property.no_of_bath }}</p>
+                    <p><strong>Amount ($):</strong> {{ property.amount }}</p>
+                    <p><strong>For:</strong> {{ property.tag }}</p>
+                    <p><strong>Purpose:</strong> {{ property.get_purpose_display }}</p>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <form method="POST" action="{% url 'property_details' property.id %}">
+            {% csrf_token %}
+            <div class="faq" style="max-width:700px;">
+                <p>Enter the amount you wish to invest on this asset</p>
+                <div>
+                    <label>Amount</label>
+                    <input type="text" name="amount" placeholder="Type here">
+                </div>
+                <div>
+                    <label>Wallet</label>
+                    <select name="account_type">
+                        <option value="USDT_TRC20">USDT TRC20</option>
+                        <option value="USDT_ERC20">USDT ERC20</option>
+                        <option value="BTC">BTC</option>
+                    </select>
+                </div>
+            </div>
+            <div class="payment-section-footer">
+                <button class="save-button" style="width:100%;" type="submit">
+                    Invest
+                </button>
+            </div>
+        </form>
+        
+    </section>
+</div>
+
+{% comment %} don't touch {% endcomment %}
+{% include 'chunks/side_balance.html' %}
+
+{% endblock content %}

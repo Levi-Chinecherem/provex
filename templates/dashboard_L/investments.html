@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Investments{% endblock %}
+
+{% block content %}
+<div class="app-body-main-content" style="max-width:600px;">
+    <section class="transfer-section">
+        <div>
+            <div class="transfer-section-header">
+                <h2 style="margin-bottom: 15px;">Investment Details</h2>
+            </div><br>
+
+            <div class="row g-4">
+                {% for investment in user_investments %}
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="property-item rounded overflow-hidden">
+                            <div class="position-relative overflow-hidden">
+                                {% if investment.id %}
+                                    <a href="{% url 'investment_details' investment.id %}">
+                                        <img class="img-fluid" src="{{ investment.property.image.url }}" alt="{{ investment.property.title }}">
+                                    </a>
+                                {% endif %}
+                            </div>
+                            <div class="p-4 pb-0">
+                                {% if investment.id %}
+                                    <h5 class="text-primary mb-3">{{ investment.amount }}</h5>
+                                    <a class="d-block h5 mb-2" href="{% url 'investment_details' investment.id %}">{{ investment.property.title }}</a>
+                                    <p><i class="fa fa-map-marker-alt text-primary me-2"></i>{{ investment.property.address }}</p>
+                                {% endif %}
+                            </div>
+                            <div class="d-flex border-top">
+                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-ruler-combined text-primary me-2"></i>{{ investment.property.width_in_sqft }} Sqft</small>
+                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-bed text-primary me-2"></i>{{ investment.property.no_of_bed }} Bed</small>
+                                <small class="flex-fill text-center py-2"><i class="fa fa-bath text-primary me-2"></i>{{ investment.property.no_of_bath }} Bath</small>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+</div>
+
+{% comment %} don't touch {% endcomment %}
+{% include 'chunks/side_balance.html' %}
+{% endblock content %}

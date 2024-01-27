@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title %}Investment Details{% endblock %}
+
+{% block content %}
+<div class="app-body-main-content">
+    <section class="transfer-section">
+        <div>
+            <div class="transfers" id="property-details-container">
+                <div class="container">
+                    <img src="{{ investment.property.image.url }}" alt="{{ property.title }}" class="img-fluid rounded"><br>
+                    <div class="row">
+                        <!-- Property Details -->
+                        <div class="col-md-6 mb-3">
+                            <h3>Property Information</h3>
+                            <h3>{{ investment.property.title }}</h3>
+                            <p><strong>Address:</strong> {{ investment.property.address }}</p>
+                            <p><strong>Width (sqft):</strong> {{ investment.property.width_in_sqft }}</p>
+                            <p><strong>Number of Bedrooms:</strong> {{ investment.property.no_of_bed }}</p>
+                            <p><strong>Number of Bathrooms:</strong> {{ investment.property.no_of_bath }}</p>
+                            <p><strong>Amount ($):</strong> {{ investment.property.amount }}</p>
+                            <p><strong>For:</strong> {{ investment.property.tag }}</p>
+                            <p><strong>Purpose:</strong> {{ investment.property.get_purpose_display }}</p>
+                        </div>
+                
+                        <!-- Investment Details -->
+                        <div class="col-md-6 mb-3">
+                            <h3>Investment Information</h3>
+                            <p><strong>Amount Invested ($):</strong> {{ investment.amount }}</p>
+                            <p><strong>Interest Percentage (%):</strong> {{ investment.interest_percentage }}</p>
+                            <p><strong>Investment Date:</strong> {{ investment.created_at }}</p>
+                            <p><strong>Future Interest ($):</strong> {{ future_interest }}</p>
+                            <p><strong>Current Interest ($):</strong> {{ current_interest }}</p>
+                            <p><strong>Future Interest Due Date:</strong> {{ future_interest_due_date }}</p>
+                            <p><strong>Days Remaining for Future Interest:</strong> {{ days_remaining }}</p>
+                            <p><strong>Days Past Due Date:</strong> {{ days_past_due }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="faq" style="max-width:700px;">
+                        <p>Enter your USDT TRC20 address to request payout if you have acquired current interest on this asset</p>
+                        <div>
+                            <label>Address</label>
+                            <input type="text" name="wallet_address" placeholder="Type here">
+                        </div>
+                    </div>
+                    <div class="payment-section-footer">
+                        <button class="save-button" style="width:100%;" type="submit">
+                            Close Investment
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>
+
+{% comment %} don't touch {% endcomment %}
+{% include 'chunks/side_balance.html' %}
+
+{% endblock content %}

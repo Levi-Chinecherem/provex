@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}Exchange{% endblock %}
+
+{% block content %}
+<div class="app-body-main-content">
+    <section class="transfer-section">
+        
+        <div class="transfer-section-header">
+            <h2 style="margin-bottom: 15px;">Investment Guide</h2>
+        </div>
+
+        <div class="transfers" id="investment-guide-container" style="max-width:700px;">
+            <p>Welcome to Provex Homes! Here's a step-by-step guide on how to invest in assets and grow your portfolio:</p>
+
+            <ol>
+                <li><strong>Login:</strong> Sign in to your account using your credentials.</li>
+
+                <li>
+                    <strong>Fund Your Wallet:</strong> Navigate to the "Transfer" section, where you will find three wallet addresses for BTC, USDT, and ETH. Choose any of them based on your preference and fund your wallet accordingly.
+                    <ul>
+                        <li>Enter the amount you want to fund.</li>
+                        <li>Provide the wallet address if you are funding with USDT, BTC, or ERC20.</li>
+                        <li>Wait for network confirmation.</li>
+                        <li>Your account balance will be updated after confirmation.</li>
+                    </ul>
+                </li>
+
+                <li>
+                    <strong>Explore Assets:</strong> Head to the dashboard and locate the "Assets" section. Here, you'll find a list of available properties to invest in.
+                    <ul>
+                        <li>Click on the title or image of any property to view its details.</li>
+                    </ul>
+                </li>
+
+                <li>
+                    <strong>Invest in a Property:</strong> On the property details page, scroll down to find the investment form.
+                    <ul>
+                        <li>Enter the amount you wish to invest in the property.</li>
+                        <li>Click the "Invest" button.</li>
+                    </ul>
+                </li>
+
+                <li>
+                    <strong>View Your Investments:</strong> After investing, you can check your investment details on the investment page.
+                    <ul>
+                        <li>View the assets you've invested in.</li>
+                        <li>See your interest and percentages.</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <p>Feel free to explore different properties and diversify your investments. If you have any questions, our support team is here to assist you.</p>
+        </div>
+    </section>
+</div>
+
+{% comment %} don't touch {% endcomment %}
+{% include 'chunks/side_balance.html' %}
+
+{% endblock content %}

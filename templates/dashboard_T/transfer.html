@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block title %}Transfer{% endblock %}
+
+{% block content %}
+<div class="app-body-main-content">
+    <section class="service-section">
+        
+        <!-- search by category (high, medium, low returns) -->
+        <div class="mobile-only">
+            <button class="flat-button">
+                Funding Addresses
+            </button>
+        </div>
+        <div class="tiles">
+            {% for address in latest_addresses %}
+                <article class="tile" style="max-width:210px; overflow: auto;">
+                    <div class="tile-header">
+                        <i class="{{ address.coin_icon }}"></i>
+                        <h3>
+                            <span>{{ address.coin_name }}</span>
+                            {% comment %} address {% endcomment %}
+                            <span>{{ address.wallet_address }}</span>
+                        </h3>
+                    </div>
+                    <a href="">
+                        <img src="{{ address.qr_code.url }}" alt="QRCode" width="180" height="auto">
+                    </a>
+                </article>
+            {% endfor %}
+        </div>
+
+        <div class="service-section-footer">
+            <p>Choose any payment address you wish to use and make payment</p>
+        </div>
+    </section>
+
+    
+    <br>
+    <div class="transfer-section-header">
+        <h2 style="margin-bottom: 15px;">Fund Wallet</h2>
+    </div>
+
+    <form method="POST" action="{% url 'add_funds' %}">
+        {% csrf_token %}
+        <div class="faq" style="max-width:700px;">
+            <p>Enter the exact amount you want to fund your wallet with, and the wallet you wish to fund with (BTC, USDT, or ETH), don't put the wrong amount to avoid loss of funds. Your account will be updated upon confirmation</p>
+            <div>
+                <label>Amount</label>
+                <input type="text" name="amount" placeholder="Type here">
+            </div>
+            <div>
+                <label>Wallet</label>
+                <select name="account_type">
+                    <option value="USDT_TRC20">USDT TRC20</option>
+                    <option value="USDT_ERC20">USDT ERC20</option>
+                    <option value="BTC">BTC</option>
+                </select>
+            </div>
+        </div>
+        <div class="payment-section-footer">
+            <button class="save-button" style="width:100%;" type="submit">
+                Fund
+            </button>
+        </div>
+    </form>
+
+</div>
+
+{% comment %} don't touch {% endcomment %}
+{% include 'chunks/side_balance.html' %}
+
+{% endblock content %}

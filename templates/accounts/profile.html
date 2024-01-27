@@ -1,0 +1,32 @@
+<!-- profile.html -->
+{% extends 'base.html' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<div class="app-body-main-content">
+    <section class="profile-section">
+        <div class="card" style="width:100%;">
+            <div class="card-body d-flex justify-content-center align-items-center">
+                <div>
+                    <h2 class="card-title">User Profile</h2>
+                    <p>Welcome, {{ user.username }}!</p>
+                    <p>Email: {{ user.email }}</p>
+                    <!-- Add more user details as needed -->
+
+                    <!-- Links to other views -->
+                    <div class="mt-4">
+                        <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+                        <a href="{% url 'password_change' %}" class="btn btn-info">Change Password</a>
+                        <a href="{% url 'password_reset' %}" class="btn btn-warning">Reset Password</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+{% comment %} don't touch {% endcomment %}
+{% include 'chunks/side_balance.html' %}
+
+{% endblock content %}

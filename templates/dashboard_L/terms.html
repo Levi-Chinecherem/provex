@@ -1,0 +1,217 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block stylesheet %}./dashboard.css{% endblock %}
+
+
+{% block content %}
+<div class="app-body-main-content">
+    <section class="service-section">
+        
+        <!-- search by category (high, medium, low returns) -->
+        <div class="mobile-only">
+            <button class="flat-button">
+                Toggle search
+            </button>
+        </div>
+        <div class="tiles">
+            <article class="tile">
+                <div class="tile-header">
+                    <i class="ph-lightning-light"></i>
+                    <h3>
+                        <span>Mansion</span>
+                        <span>UrkEnergo LTD.</span>
+                    </h3>
+                </div>
+                <a href="#">
+                    <span>Go to service</span>
+                    <span class="icon-button">
+                        <i class="ph-caret-right-bold"></i>
+                    </span>
+                </a>
+            </article>
+            <article class="tile">
+                <div class="tile-header">
+                    <i class="ph-fire-simple-light"></i>
+                    <h3>
+                        <span>Bungallo</span>
+                        <span>Gazprom UA</span>
+                    </h3>
+                </div>
+                <a href="#">
+                    <span>Go to service</span>
+                    <span class="icon-button">
+                        <i class="ph-caret-right-bold"></i>
+                    </span>
+                </a>
+            </article>
+            <article class="tile">
+                <div class="tile-header">
+                    <i class="ph-file-light"></i>
+                    <h3>
+                        <span>Duplex</span>
+                        <span>Kharkov 62 str.</span>
+                    </h3>
+                </div>
+                <a href="#">
+                    <span>Go to service</span>
+                    <span class="icon-button">
+                        <i class="ph-caret-right-bold"></i>
+                    </span>
+                </a>
+            </article>
+        </div>
+
+        <div class="service-section-footer">
+            <p>Services are paid according to the current state of the currency and tariff.</p>
+        </div>
+
+
+    </section>
+
+    <!-- Latest payments/transfers -->
+    <section class="transfer-section">
+        <div class="transfer-section-header">
+            <h2>Latest transfers</h2>
+        </div>
+        <div class="transfers">
+            <div class="transfer">
+                <div class="transfer-logo">
+                    <img src="https://assets.codepen.io/285131/apple.svg" />
+                </div>
+                <dl class="transfer-details">
+                    <div>
+                        <dt>BTC</dt>
+                        <dd>Bitcoin Payment</dd>
+                    </div>
+                    <div>
+                        <dt>4012</dt>
+                        <dd>Last four digits</dd>
+                    </div>
+                    <div>
+                        <dt>28 Oct. 21</dt>
+                        <dd>Date payment</dd>
+                    </div>
+                </dl>
+                <div class="transfer-number">
+                    - $ 550
+                </div>
+            </div>
+            <div class="transfer">
+                <div class="transfer-logo">
+                    <img src="https://assets.codepen.io/285131/pinterest.svg" />
+                </div>
+                <dl class="transfer-details">
+                    <div>
+                        <dt>USDT</dt>
+                        <dd>USDT Payment</dd>
+                    </div>
+                    <div>
+                        <dt>5214</dt>
+                        <dd>Last four digits</dd>
+                    </div>
+                    <div>
+                        <dt>26 Oct. 21</dt>
+                        <dd>Date payment</dd>
+                    </div>
+                </dl>
+                <div class="transfer-number">
+                    - $ 120
+                </div>
+            </div>
+            <div class="transfer">
+                <div class="transfer-logo">
+                    <img src="https://assets.codepen.io/285131/warner-bros.svg" />
+                </div>
+                <dl class="transfer-details">
+                    <div>
+                        <dt>ETH</dt>
+                        <dd>Ethereum Payment</dd>
+                    </div>
+                    <div>
+                        <dt>2228</dt>
+                        <dd>Last four digits</dd>
+                    </div>
+                    <div>
+                        <dt>22 Oct. 21</dt>
+                        <dd>Date payment</dd>
+                    </div>
+                </dl>
+                <div class="transfer-number">
+                    - $ 70
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="app-body-sidebar">
+    <section class="payment-section">
+        <h2>Balance</h2>
+        <div class="payment-section-header">
+        </div>
+        <div class="payments">
+            <div class="payment">
+                <div class="card green">
+                    <span>BTC</span>
+                    <span>
+                        •••• 4012
+                    </span>
+                </div>
+                <div class="payment-details">
+                    <h3>Bitcoin Balance</h3>
+                    <div>
+                        <span>$ 2,110</span>
+                    </div>
+                </div>
+            </div>
+            <div class="payment">
+                <div class="card olive">
+                    <span>USDT</span>
+                    <span>
+                        •••• 2228
+                    </span>
+                </div>
+                <div class="payment-details">
+                    <h3>USDT Balance</h3>
+                    <div>
+                        <span>$ 5,621</span>
+                    </div>
+                </div>
+            </div>
+            <div class="payment">
+                <div class="card gray">
+                    <span>ETH</span>
+                    <span>
+                        •••• 5214
+                    </span>
+                </div>
+                <div class="payment-details">
+                    <h3>Ethereum Balance</h3>
+                    <div>
+                        <span>$ 3,473</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="faq">
+            <p>Feel free to drop us any questions, we reply as fast as 24hrs</p>
+            <div>
+                <label>Question</label>
+                <input type="text" placeholder="Type here">
+            </div>
+        </div>
+        <div class="payment-section-footer">
+            <button class="save-button">
+                Save
+            </button>
+            <button class="settings-button">
+                <i class="ph-gear"></i>
+                <span>Profile</span>
+            </button>
+        </div>
+    </section>
+</div>
+{% endblock content %}
+    

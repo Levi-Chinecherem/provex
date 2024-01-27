@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="card" style="width:100%;">
+    <div class="card-body d-flex justify-content-center align-items-center">
+        <div>    
+            <h2 class="card-title">Login</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+            {% if not user.is_authenticated %}
+                <p>Don't have an account? <a href="{% url 'signup' %}">Sign Up</a></p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
