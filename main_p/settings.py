@@ -141,9 +141,31 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, images)
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+# Directory where collected static files will be stored
+STATIC_ROOT = BASE_DIR / 'collected_static'
+
 # Media files (uploads)
 # Set the media URL to point directly to Cloudinary
-MEDIA_URL = 'https://res.cloudinary.com/ddirw9v0d/image/upload/v1/media/'
+# MEDIA_URL = 'https://res.cloudinary.com/ddirw9v0d/image/upload/v1/media/'
+# MEDIA_URL = 'https://res.cloudinary.com/ddirw9v0d/media/'
+
+# Determine if the application is running in production
+IS_PRODUCTION = True
+
+# Media URL configuration
+MEDIA_URL = '/media/'
+
+# Append Cloudinary prefix in production
+if IS_PRODUCTION:
+    MEDIA_URL = 'https://res.cloudinary.com/ddirw9v0d/image/upload/v1/' + MEDIA_URL
+
+
+
+# Ensure the media URL ends with a forward slash
+if not MEDIA_URL.endswith('/'):
+    MEDIA_URL += '/'
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 CLOUDINARY_STORAGE = {

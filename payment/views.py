@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .utils import get_account_details
+from .utils import *
 from .models import Funds
 from decimal import Decimal
 from django.contrib import messages
@@ -15,11 +15,18 @@ def funds_details(request):
     usdt_erc20_details = get_account_details(user, 'USDT_ERC20')
     btc_details = get_account_details(user, 'BTC')
 
+    # Fetch latest addresses and QR codes
+    latest_usdt_trc20 = get_latest_usdt_trc20()
+    latest_usdt_erc20 = get_latest_usdt_erc20()
+    latest_btc = get_latest_btc()
+
     # Create context
     context = {
-        'usdt_trc20_balance': usdt_trc20_details['usdt_trc20_balance'],
-        'usdt_erc20_balance': usdt_erc20_details['usdt_erc20_balance'],
-        'btc_balance': btc_details['btc_balance'],
+        'latest_addresses': [
+            usdt_trc20_details,
+            usdt_erc20_details,
+            btc_details,
+        ],
         'usdt_trc20_last_digits': usdt_trc20_details['usdt_trc20_last_digits'],
         'usdt_erc20_last_digits': usdt_erc20_details['usdt_erc20_last_digits'],
         'btc_last_digits': btc_details['btc_last_digits'],
