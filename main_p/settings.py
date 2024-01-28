@@ -12,11 +12,9 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 import cloudinary
 import cloudinary_storage
-
-import cloudinary.uploader
-import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -44,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'cloudinary_storage',
+    'cloudinary',
 
     'static_pages',
     'payment',
@@ -139,44 +138,25 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 
-# Static files (CSS, JavaScript, images)
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-# Directory where collected static files will be stored
-STATIC_ROOT = BASE_DIR / 'collected_static'
+STATIC_URL = 'static/'
+STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+MEDIA_URL = '/cloud_image_media/'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Media files (uploads)
 # Set the media URL to point directly to Cloudinary
 # MEDIA_URL = 'https://res.cloudinary.com/ddirw9v0d/image/upload/v1/media/'
 # MEDIA_URL = 'https://res.cloudinary.com/ddirw9v0d/media/'
 
-# Determine if the application is running in production
-IS_PRODUCTION = True
+# Default primary key field type
+# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
-# Media URL configuration
-MEDIA_URL = '/media/'
-
-# Append Cloudinary prefix in production
-if IS_PRODUCTION:
-    MEDIA_URL = 'https://res.cloudinary.com/ddirw9v0d/image/upload/v1/' + MEDIA_URL
-
-
-
-# Ensure the media URL ends with a forward slash
-if not MEDIA_URL.endswith('/'):
-    MEDIA_URL += '/'
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': 'ddirw9v0d',
     'API_KEY': '736136276635934',
     'API_SECRET': '8ePybnqjE4xP9HlGMhT_jyUiiTI'
 }
-
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
