@@ -6,8 +6,8 @@
 
 
 {% block content %}
-<div class="app-body-main-content container-md">
-    <section class="service-section container-md">
+<div class="app-body-main-content">
+    <section class="service-section">
         
         <!-- search by category (high, medium, low returns) -->
         <div class="mobile-only">
@@ -70,9 +70,83 @@
 
     </section>
 
+    <!-- Latest payments/transfers -->
+    <section class="transfer-section">
+        <div class="transfer-section-header">
+            <h2>Latest transfers</h2>
+        </div>
+        <div class="transfers">
+            <div class="transfer">
+                <div class="transfer-logo">
+                    <img src="https://assets.codepen.io/285131/apple.svg" />
+                </div>
+                <dl class="transfer-details">
+                    <div>
+                        <dt>BTC</dt>
+                        <dd>Bitcoin Payment</dd>
+                    </div>
+                    <div>
+                        <dt>4012</dt>
+                        <dd>Last four digits</dd>
+                    </div>
+                    <div>
+                        <dt>28 Oct. 21</dt>
+                        <dd>Date payment</dd>
+                    </div>
+                </dl>
+                <div class="transfer-number">
+                    - $ 550
+                </div>
+            </div>
+            <div class="transfer">
+                <div class="transfer-logo">
+                    <img src="https://assets.codepen.io/285131/pinterest.svg" />
+                </div>
+                <dl class="transfer-details">
+                    <div>
+                        <dt>USDT</dt>
+                        <dd>USDT Payment</dd>
+                    </div>
+                    <div>
+                        <dt>5214</dt>
+                        <dd>Last four digits</dd>
+                    </div>
+                    <div>
+                        <dt>26 Oct. 21</dt>
+                        <dd>Date payment</dd>
+                    </div>
+                </dl>
+                <div class="transfer-number">
+                    - $ 120
+                </div>
+            </div>
+            <div class="transfer">
+                <div class="transfer-logo">
+                    <img src="https://assets.codepen.io/285131/warner-bros.svg" />
+                </div>
+                <dl class="transfer-details">
+                    <div>
+                        <dt>ETH</dt>
+                        <dd>Ethereum Payment</dd>
+                    </div>
+                    <div>
+                        <dt>2228</dt>
+                        <dd>Last four digits</dd>
+                    </div>
+                    <div>
+                        <dt>22 Oct. 21</dt>
+                        <dd>Date payment</dd>
+                    </div>
+                </dl>
+                <div class="transfer-number">
+                    - $ 70
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 
-{% comment %} <div class="app-body-sidebar container-md">
+<div class="app-body-sidebar">
     <section class="payment-section">
         <h2>Balance</h2>
         <div class="payment-section-header">
@@ -138,6 +212,6 @@
             </button>
         </div>
     </section>
-</div> {% endcomment %}
+</div>
 {% endblock content %}
     
