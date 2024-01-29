@@ -29,16 +29,16 @@
         <button class="user-profile">
             <span>{{ request.user.username }}</span>
             <span>
-                <img src="https://i1.wp.com/www.essexyachtclub.co.uk/wp-content/uploads/2019/03/person-placeholder-portrait.png?fit=500%2C500&ssl=1" />
+                <img src="https://i1.wp.com/www.essexyachtclub.co.uk/wp-content/uploads/2019/03/person-placeholder-portrait.png?fit=500%2C500&ssl=1" style="max-width: 150px;"/>
             </span>
         </button>
         <div class="app-header-actions-buttons">
-            <button class="icon-button large">
+            {% comment %} <button class="icon-button large">
                 <i class="fas fa-search"></i>
             </button>
             <button class="icon-button large">
                 <i class="fas fa-bell"></i>
-            </button>
+            </button> {% endcomment %}
         </div>
     </div>
     <div class="app-header-mobile">
