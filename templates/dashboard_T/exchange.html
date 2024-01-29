@@ -4,10 +4,12 @@
 
 {% block content %}
 <div class="app-body-main-content container-md">
-    {% include 'chunks/others.html' %}
-    
-    <section class="transfer-section">
-        
+    <section class="transfer-section container-md">
+        <!-- Section 1: About Our Properties -->
+        <div class="mt-4 container text-center">
+            <img src="https://provex.netlify.app/assets/properties-f44713d4.png" alt="house lines" class="img-fluid w-50">
+        </div>
+
         <div class="transfer-section-header">
             <h2 style="margin-bottom: 15px;">Investment Guide</h2>
         </div>
@@ -55,9 +57,9 @@
             <p>Feel free to explore different properties and diversify your investments. If you have any questions, our support team is here to assist you.</p>
         </div>
     </section>
+    {% comment %} don't touch {% endcomment %}
+    {% include 'chunks/side_balance.html' %}
 </div>
 
-{% comment %} don't touch {% endcomment %}
-{% include 'chunks/side_balance.html' %}
 
 {% endblock content %}

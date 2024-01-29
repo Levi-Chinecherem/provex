@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class="app-body-main-content container-md" style="max-width:600px;">
-    <section class="transfer-section">
+    <section class="transfer-section container-md">
         {% for property_status in property_statuses %}
             <div>
                 <div class="transfer-section-header">
@@ -40,10 +40,10 @@
             </div>
         {% endfor %}
     </section>
+    {% comment %} don't touch {% endcomment %}
+    {% include 'chunks/side_balance.html' %}
 </div>
 
-{% comment %} don't touch {% endcomment %}
-{% include 'chunks/side_balance.html' %}
 
 {% endblock content %}
 
