@@ -24,8 +24,8 @@
                                     <h3>
                                         <span>{{ address.coin_name }}</span>
                                         <span>{{ address.wallet_address }}</span>
-                                        <button class="btn btn-outline-dark btn-sm ml-2 copy-address" data-address="{{ address.wallet_address }}">Copy</button>
                                     </h3>
+                                    <button style="max-width:100px;" class="btn btn-outline-dark btn-sm ml-2 copy-address" data-address="{{ address.wallet_address }}">Copy</button>
                                 </div>
                                 <span class="d-block text-center">
                                     <img src="{{ address.qr_code.url }}" alt="QRCode" width="180" height="auto">
