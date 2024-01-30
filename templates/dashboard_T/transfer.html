@@ -18,13 +18,13 @@
                 <div class="col-md-12">
                     <div class="tiles">
                         {% for address in latest_addresses %}
-                            <article class="tile" style="max-width:210px; overflow: hidden;">
+                            <article class="tile" style="max-width:210px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
                                 <div class="tile-header">
                                     <i class="{{ address.coin_icon }}"></i>
                                     <h3>
                                         <span>{{ address.coin_name }}</span>
                                         <span>{{ address.wallet_address }}</span>
-                                        <button style="max-width:180px;" class="btn btn-outline-dark btn-sm ml-2 copy-address" data-address="{{ address.wallet_address }}">Copy</button>
+                                        <button style="max-width:160px;" class="btn btn-outline-dark btn-sm ml-2 copy-address" data-address="{{ address.wallet_address }}">Copy</button>
                                     </h3>
                                 </div>
                                 <span class="d-block text-center">
