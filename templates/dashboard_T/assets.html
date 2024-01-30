@@ -4,8 +4,8 @@
 {% block title %}Assets{% endblock %}
 
 {% block content %}
-<div class="app-body-main-content container-md">
-    <section class="transfer-section container-md">
+<div class="app-body-main-content">
+    <section class="transfer-section">
         
         <div class="transfer-section-header">
             <h2 style="margin-bottom: 15px;">Assets</h2>
@@ -53,9 +53,9 @@
         <!-- Property List End -->
 
     </section>
-    {% comment %} don't touch {% endcomment %}
-    {% include 'chunks/side_balance.html' %}
 </div>
 
+{% comment %} don't touch {% endcomment %}
+{% include 'chunks/side_balance.html' %}
 
 {% endblock content %}

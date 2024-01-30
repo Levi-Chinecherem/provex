@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class="app-body-main-content container-md">
-    <section class="transfer-section container-md">
+    <section class="transfer-section">
         <div>
             <div class="transfers" id="property-details-container">
                 <div style="margin-bottom: 20px;">
@@ -47,9 +47,9 @@
         </form>
         
     </section>
-    {% comment %} don't touch {% endcomment %}
-    {% include 'chunks/side_balance.html' %}
 </div>
 
+{% comment %} don't touch {% endcomment %}
+{% include 'chunks/side_balance.html' %}
 
 {% endblock content %}

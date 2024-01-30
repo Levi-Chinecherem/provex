@@ -10,7 +10,9 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-
+    <!-- Include Tippy.js CSS and JS -->
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6.3.1/dist/tippy.css" />
+    <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js"></script>
 </head>
 <body style="background-color: #0E2E50;">
     
@@ -34,6 +36,30 @@
         </div>
     </div>
 
+    
+    <script>
+        // Add event listener to each copy-address element
+        document.querySelectorAll('.copy-address').forEach(function (element) {
+            element.addEventListener('click', function () {
+                // Copy wallet address to clipboard
+                const walletAddress = this.getAttribute('data-address');
+                navigator.clipboard.writeText(walletAddress);
+
+                // Show tooltip
+                tippy(this, {
+                    content: 'Wallet Address Copied!',
+                    trigger: 'manual',
+                    placement: 'top',
+                }).show();
+
+                // Hide tooltip after a short delay
+                setTimeout(function () {
+                    tippy(this).hide();
+                }, 2000);
+            });
+        });
+    </script>
+
     <!-- Template Javascript -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -56,10 +82,10 @@
 <!-- JavaScript Libraries -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="{% static 'lib/wow/wow.min.js' %}"></script>
-<script src="{% static 'lib/easing/easing.min.js' %}"></script>
-<script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
-<script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" integrity="sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tsparticles-plugin-easing-quad/2.12.0/tsparticles.plugin.easing.quad.min.js" integrity="sha512-yrOnq72+Bpu7dqzmT7Zktj1AheRgIcfbZImaiWYLcS4WwzNyvg/NDJNKOyv1S4KWuVEFwNMtXnR5KDJtzYoqtQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.min.js" integrity="sha512-fHXRw0CXruAoINU11+hgqYvY/PcsOWzmj0QmcSOtjlJcqITbPyypc8cYpidjPurWpCnlB8VKfRwx6PIpASCUkQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js" integrity="sha512-9CWGXFSJ+/X0LWzSRCZFsOPhSfm6jbnL+Mpqo0o8Ke2SYr8rCTqb4/wGm+9n13HtDE1NQpAEOrMecDZw4FXQGg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 </body>
 </html>

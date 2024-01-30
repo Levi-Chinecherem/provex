@@ -3,8 +3,8 @@
 {% block title %}Transfer{% endblock %}
 
 {% block content %}
-<div class="app-body-main-content container-md">
-    <section class="service-section container-md">
+<div class="app-body-main-content">
+    <section class="service-section">
         
         <!-- search by category (high, medium, low returns) -->
         <div class="mobile-only">
@@ -12,6 +12,7 @@
                 Funding Addresses
             </button>
         </div>
+        
         <div class="tiles">
             {% for address in latest_addresses %}
                 <article class="tile" style="max-width:210px; overflow: auto;">
@@ -19,8 +20,7 @@
                         <i class="{{ address.coin_icon }}"></i>
                         <h3>
                             <span>{{ address.coin_name }}</span>
-                            {% comment %} address {% endcomment %}
-                            <span>{{ address.wallet_address }}</span>
+                            <span class="copy-address" data-address="{{ address.wallet_address }}">{{ address.wallet_address }}</span>
                         </h3>
                     </div>
                     <a>
@@ -65,9 +65,9 @@
         </div>
     </form>
 
-    {% comment %} don't touch {% endcomment %}
-    {% include 'chunks/side_balance.html' %}
 </div>
 
+{% comment %} don't touch {% endcomment %}
+{% include 'chunks/side_balance.html' %}
 
 {% endblock content %}
