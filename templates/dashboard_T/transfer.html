@@ -13,21 +13,27 @@
             </button>
         </div>
         
-        <div class="tiles">
-            {% for address in latest_addresses %}
-                <article class="tile" style="max-width:210px; overflow: auto;">
-                    <div class="tile-header">
-                        <i class="{{ address.coin_icon }}"></i>
-                        <h3>
-                            <span>{{ address.coin_name }}</span>
-                            <span class="copy-address" data-address="{{ address.wallet_address }}">{{ address.wallet_address }}</span>
-                        </h3>
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="tiles">
+                        {% for address in latest_addresses %}
+                            <article class="tile mb-4" style="max-width:210px; overflow: auto;">
+                                <div class="tile-header bg-dark text-light p-2">
+                                    <i class="{{ address.coin_icon }} mr-2"></i>
+                                    <h3>
+                                        <span>{{ address.coin_name }}</span>
+                                        <button class="btn btn-outline-light btn-sm ml-2 copy-address" data-address="{{ address.wallet_address }}">Copy</button>
+                                    </h3>
+                                </div>
+                                <span class="d-block text-center">
+                                    <img src="{{ address.qr_code.url }}" alt="QRCode" width="180" height="auto">
+                                </span>
+                            </article>
+                        {% endfor %}
                     </div>
-                    <span>
-                        <img src="{{ address.qr_code.url }}" alt="QRCode" width="180" height="auto">
-                    </span>
-                </article>
-            {% endfor %}
+                </div>
+            </div>
         </div>
 
         <div class="service-section-footer">
@@ -71,11 +77,13 @@
 {% include 'chunks/side_balance.html' %}
 
 <script>
-    // Add event listener to each copy-address element
-    document.querySelectorAll('.copy-address').forEach(function (element) {
-        element.addEventListener('click', function () {
-            // Copy wallet address to clipboard
+    // Add event listener to each copy-address button
+    document.querySelectorAll('.copy-address').forEach(function (button) {
+        button.addEventListener('click', function () {
+            // Find the corresponding wallet address
             const walletAddress = this.getAttribute('data-address');
+
+            // Copy wallet address to clipboard
             navigator.clipboard.writeText(walletAddress);
 
             // Show tooltip
@@ -92,4 +100,5 @@
         });
     });
 </script>
+
 {% endblock content %}
