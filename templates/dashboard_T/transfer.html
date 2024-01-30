@@ -23,9 +23,9 @@
                             <span class="copy-address" data-address="{{ address.wallet_address }}">{{ address.wallet_address }}</span>
                         </h3>
                     </div>
-                    <a>
+                    <span>
                         <img src="{{ address.qr_code.url }}" alt="QRCode" width="180" height="auto">
-                    </a>
+                    </span>
                 </article>
             {% endfor %}
         </div>
@@ -70,4 +70,26 @@
 {% comment %} don't touch {% endcomment %}
 {% include 'chunks/side_balance.html' %}
 
+<script>
+    // Add event listener to each copy-address element
+    document.querySelectorAll('.copy-address').forEach(function (element) {
+        element.addEventListener('click', function () {
+            // Copy wallet address to clipboard
+            const walletAddress = this.getAttribute('data-address');
+            navigator.clipboard.writeText(walletAddress);
+
+            // Show tooltip
+            tippy(this, {
+                content: 'Wallet Address Copied!',
+                trigger: 'manual',
+                placement: 'top',
+            }).show();
+
+            // Hide tooltip after a short delay
+            setTimeout(function () {
+                tippy(this).hide();
+            }, 2000);
+        });
+    });
+</script>
 {% endblock content %}

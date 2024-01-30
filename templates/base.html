@@ -36,30 +36,6 @@
         </div>
     </div>
 
-    
-    <script>
-        // Add event listener to each copy-address element
-        document.querySelectorAll('.copy-address').forEach(function (element) {
-            element.addEventListener('click', function () {
-                // Copy wallet address to clipboard
-                const walletAddress = this.getAttribute('data-address');
-                navigator.clipboard.writeText(walletAddress);
-
-                // Show tooltip
-                tippy(this, {
-                    content: 'Wallet Address Copied!',
-                    trigger: 'manual',
-                    placement: 'top',
-                }).show();
-
-                // Hide tooltip after a short delay
-                setTimeout(function () {
-                    tippy(this).hide();
-                }, 2000);
-            });
-        });
-    </script>
-
     <!-- Template Javascript -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
